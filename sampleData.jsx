@@ -1,4 +1,4 @@
-exports.sample_data = {
+var sampleData = {
   "Similar": {
       "Info": [
           {
@@ -174,3 +174,5 @@ exports.sample_data = {
       ]
   }
 }
+
+export default sampleData;
