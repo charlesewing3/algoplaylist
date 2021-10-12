@@ -11,12 +11,12 @@ function RelatedItems({similarArtists, searchedArtist}) {
           <h1 className="heading1">Playlist (Similar to {searchedArtist.Name})</h1>
           {/* <i>Autoplay all</i> */}
           <div id="related-inner-container">
-            {similarArtists.map(fourArtists => {
+            {similarArtists.map((fourArtists, index) => {
               var output = [];
               for (var i = 0; i < fourArtists.length; i++) {
                 output.push(<Item artist={fourArtists[i]} key={fourArtists[i].Name}/>)
               }
-              return <div className="rowX">{output}</div>;
+              return <div className="rowX" key={'row'+ index}>{output}</div>;
             })}
           </div>
         </div>

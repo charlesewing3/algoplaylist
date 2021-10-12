@@ -209,3 +209,8 @@ iframe {
   position: absolute;
   left: 20%;
 }
+
+#algo-options {
+  display: flex;
+}
+

@@ -20,15 +20,24 @@ class App extends React.Component {
     }
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    this.flatten = this.flatten.bind(this);
+    this.unFlatten = this.unFlatten.bind(this);
+    this.merge = this.merge.bind(this);
+    this.mergeSortReverse = this.mergeSortReverse.bind(this);
+    this.handleMergeSortReverse = this.handleMergeSortReverse.bind(this);
+    this.changeAutoPlay = this.changeAutoPlay.bind(this);
   }
 
+  // updates state when you type in search bar
   handleSearchChange(e) {
     this.setState({
       searchTerm: e.target.value
     });
   }
 
+  // calls API when you submit a new search
   handleSearchSubmit(e) {
+    // prevent page refresh
     e.preventDefault();
     // request 50 items
     axios.get('/similar', {
@@ -79,9 +88,107 @@ class App extends React.Component {
       })
   }
 
-  handleSuggestedScroll() {
-
+  //----------------------------------
+  // Sorting Helper Functions
+  //----------------------------------
+  flatten(arr) {
+    var flatArr = [];
+    var innerFunction = function(arr) {
+      for (var i = 0; i < arr.length; i++) {
+        if (!Array.isArray(arr[i])) {
+          flatArr.push(arr[i]);
+        } else {
+          innerFunction(arr[i]);
+        }
+      }
+    }
+    innerFunction(arr);
+    return flatArr;
   }
+
+  unFlatten(arr) {
+    var output = [[], [], []];
+    var j = 0;
+    for (var i = 0; i < arr.length; i++) {
+      output[j].push(arr[i]);
+      if (output[j].length === 3) {
+        j++;
+      }
+    }
+    return output;
+  }
+
+  changeAutoPlay(flatArr) {
+    // remove autoplay from previous first video
+    for (var i = 0; i < flatArr.length; i++) {
+      console.log(flatArr[i].yUrl.indexOf('?&autoplay=1'))
+      if (flatArr[i].yUrl.indexOf('?&autoplay=1') >= 0) {
+        var index = flatArr[i].yUrl.indexOf('?&autoplay=1');
+        console.log(index)
+        flatArr[i].yUrl = flatArr[i].yUrl.slice(0, index);
+      }
+    }
+
+    // add autoplay to current first video
+    flatArr[0].yUrl = flatArr[0].yUrl + '?&autoplay=1';
+    return;
+  }
+
+  //----------------------------------
+  // Mergesort Reverse Functions
+  //----------------------------------
+  handleMergeSortReverse() {
+    var array = this.flatten(this.state.displayed);
+    var merged = this.mergeSortReverse(array);
+    this.changeAutoPlay(merged);
+    merged = this.unFlatten(merged);
+    this.setState({
+      displayed: merged
+    });
+  }
+
+  mergeSortReverse(array) {
+    if (array.length < 2) {
+      return array;
+    }
+
+    var cutoff = Math.floor(array.length / 2);
+
+    var arr1 = array.slice(0, cutoff);
+    var arr2 = array.slice(cutoff);
+
+    arr1 = this.mergeSortReverse(arr1);
+    arr2 = this.mergeSortReverse(arr2);
+
+    var merged = this.merge(arr1, arr2);
+
+    return merged;
+  }
+
+  merge(left, right) {
+    var i = 0;
+    var j = 0;
+    var result = [];
+
+    while (i < left.length && j < right.length) {
+      if (left[i].Number >= right[j].Number) {
+        result.push(left[i++]);
+      } else {
+        result.push(right[j++]);
+      }
+    }
+
+    var remaining = i === left.length ? right.slice(j) : left.slice(i);
+
+    return result.concat(remaining);
+  }
+
+
+
+
+
+
+
 
   render() {
     return (
@@ -105,7 +212,9 @@ class App extends React.Component {
 
             {this.state.displayed.length > 0 ?
               <div id="big-container">
-              <AlgoExplanations />
+              <AlgoExplanations
+                handleMergeSortReverse={this.handleMergeSortReverse}
+              />
               <RelatedItems
                 similarArtists={this.state.displayed}
                 searchedArtist={this.state.searchedArtist}
