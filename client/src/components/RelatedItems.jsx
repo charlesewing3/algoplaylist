@@ -5,16 +5,22 @@ function RelatedItems({similarArtists, searchedArtist}) {
 
     return (
       <div id="row3">
-        <button className="arrow"> {'<'} </button>
+        {/* <button className="arrow"> {'<'} </button> */}
         <div id="related-container">
-          {/* <div id="suggested-like-div"> <span id="suggested-like">Suggested Artists Like {searchedArtist.Name}:</span></div> */}
-          <h1 className="heading1">Suggested Artists Like {searchedArtist.Name}:</h1>
+
+          <h1 className="heading1">Playlist (Similar to {searchedArtist.Name})</h1>
           {/* <i>Autoplay all</i> */}
           <div id="related-inner-container">
-            {similarArtists.map(artist => <Item artist={artist} key={artist.Name}/>)}
+            {similarArtists.map(fourArtists => {
+              var output = [];
+              for (var i = 0; i < fourArtists.length; i++) {
+                output.push(<Item artist={fourArtists[i]} key={fourArtists[i].Name}/>)
+              }
+              return <div className="rowX">{output}</div>;
+            })}
           </div>
         </div>
-        <button className="arrow"> {'>'} </button>
+        {/* <button className="arrow"> {'>'} </button> */}
       </div>
     )
 

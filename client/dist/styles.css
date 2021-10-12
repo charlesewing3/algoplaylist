@@ -20,7 +20,8 @@ form {
   align-items: center;
   margin: 0px 100px 0px 100px;
   padding: 5px;
-  width: 50%
+  width: 60%;
+  gap: 30px;
   /* background-color: #f7f7f9;
   border: 3px solid #f1f1f1;
   border-radius: 5px; */
@@ -36,7 +37,7 @@ input, select {
   box-sizing: border-box;
 }
 
-button {
+#main-button {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -46,12 +47,27 @@ button {
   width: 50%;
 }
 
-button:hover {
+#main-button:hover {
   opacity: 0.8;
 }
 
-#title {
+#title, #subtitle {
   color:yellow;
+}
+
+#title {
+  display: inline;
+  float: left;
+}
+
+#subtitle {
+  display: inline;
+  float: right;
+}
+
+#title-subtitle {
+  display: flex;
+  gap: 200px;
 }
 
 #app-container {
@@ -60,6 +76,11 @@ button:hover {
 }
 
 #related-container {
+  width: 90%;
+  /* display: flex;
+  flex-direction: column; */
+  justify-content: center;
+  /* width: 1000px; */
   /* display: grid;
   grid-template-rows: auto;
   height: 100%;
@@ -73,10 +94,9 @@ button:hover {
 
 #related-inner-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 25px;
   height: 100%;
-  width: 85%;
 }
 
 #related-inner-container > div {
@@ -93,8 +113,10 @@ button:hover {
 }
 
 iframe {
-  width: 420px;
-  height: 315px;
+  width: auto;
+  height: auto;
+  /* width: 420px;
+  height: 315px; */
 }
 
 .bio {
@@ -107,8 +129,9 @@ iframe {
   margin: 5px;
 }
 .item-container {
+  display: flex;
+  flex-direction: column;
   padding: 5px;
-  margin: 15%;
   height: auto;
   background-color: #f7f7f9;
 }
@@ -116,7 +139,8 @@ iframe {
 #row3 {
   display: flex;
   align-items: center;
-  padding: 50px;
+  justify-content: center;
+  /* width: 90%; */
 }
 
 .arrow {
@@ -137,4 +161,51 @@ iframe {
 .heading1 {
   color: yellow;
   background-color: black;
+  padding: 10px;
+}
+
+#current-item-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 10px;
+  height: auto;
+  width: 90%;
+}
+#teaser, #algo-instructions {
+  background-color: #f7f7f9;
+  padding: 10px;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.rowX {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#big-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  display: inline;
+  float: left;
+}
+
+.num {
+  display: inline;
+  float: right;
+  color: blue;
+}
+
+#instructions {
+  color: white;
+  position: absolute;
+  left: 20%;
 }
