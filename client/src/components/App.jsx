@@ -18,7 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div id="app-container">
-        <h1 id="title">Related Artist Finder</h1>
+        <h1 id="title">New Music Finder</h1>
         <Search />
         <RelatedItems similarArtists={this.state.displayedSimilar} searchedArtist={this.state.searchedArtist}/>
         {/* <SavedItems /> */}
