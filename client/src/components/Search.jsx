@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Search(props) {
+function Search({searchTerm, handleSearchChange, handleSearchSubmit}) {
   return (
     <form>
-      <input></input>
-      <button>Search</button>
+      <input type="text" name="search" value={searchTerm} onChange={handleSearchChange}></input>
+      <button onClick={handleSearchSubmit}>Search</button>
     </form>
   )
 }

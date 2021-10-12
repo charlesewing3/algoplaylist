@@ -1,3 +1,11 @@
+#header {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 5% 50px 5%;
+}
 body {
   /* background: radial-gradient(#302b63, #24243e); */
   background-image: url('./images/background-collage.jpeg');
@@ -8,10 +16,11 @@ body {
 
 form {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   margin: 0px 100px 0px 100px;
   padding: 5px;
+  width: 50%
   /* background-color: #f7f7f9;
   border: 3px solid #f1f1f1;
   border-radius: 5px; */
@@ -51,22 +60,27 @@ button:hover {
 }
 
 #related-container {
-  display: grid;
-  grid-template-rows: 20px auto;
+  /* display: grid;
+  grid-template-rows: auto;
   height: 100%;
   width: 100%;
-  margin: 10px, 30px;
+  margin: 10px 30px;
+  padding: 10px;
   background-color: #f7f7f9;
   border: 3px solid #f1f1f1;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 #related-inner-container {
   display: flex;
   flex-direction: row;
+  gap: 25px;
   height: 100%;
-  width: 100%;
-  background-color: #f7f7f9;
+  width: 85%;
+}
+
+#related-inner-container > div {
+  margin: 5px;
 }
 
 #saved-container {
@@ -94,14 +108,33 @@ iframe {
 }
 .item-container {
   padding: 5px;
+  margin: 15%;
+  height: auto;
+  background-color: #f7f7f9;
 }
 
 #row3 {
   display: flex;
   align-items: center;
+  padding: 50px;
 }
 
 .arrow {
   margin: 5px;
   height: 50px;
+}
+
+#suggested-like {
+  color: white;
+  background-color: black;
+  height: 50px;
+}
+#suggested-like-div {
+
+  height: 50px;
+}
+
+.heading1 {
+  color: yellow;
+  background-color: black;
 }
