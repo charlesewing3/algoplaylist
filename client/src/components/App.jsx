@@ -34,6 +34,9 @@ class App extends React.Component {
 
     this.handleQuicksort = this.handleQuicksort.bind(this);
     this.quicksort = this.quicksort.bind(this);
+
+    this.handleSpiralTraversal = this.handleSpiralTraversal.bind(this);
+    this.spiralTraversal = this.spiralTraversal.bind(this);
   }
 
   // updates state when you type in search bar
@@ -260,6 +263,60 @@ class App extends React.Component {
   };
 
 
+  //----------------------------------
+  // Spiral Functions
+  //----------------------------------
+
+  handleSpiralTraversal() {
+    var array = this.state.displayed;
+    var spiraled = this.spiralTraversal(array);
+    this.changeAutoPlay(spiraled);
+    spiraled = this.unFlatten(spiraled);
+    this.setState({
+      displayed: spiraled
+    });
+  }
+
+  spiralTraversal(input) {
+    var output = [];
+    while (input.length > 0) {
+      // add first row
+      output = output.concat(input[0]);
+      input = input.slice(1);
+      // add right vertical down
+      if (input.length > 0) {
+        for (var i = 0; i < input.length; i++) {
+          output.push(input[i][input[i].length - 1]);
+          input[i] = input[i].slice(0, input[i].length - 1);
+        }
+        // if the first inner array is now empty, break because all elements have been pushed
+        if (input[0].length === 0) {
+          break;
+        }
+        // add last row backwards
+        if (input.length > 0) {
+          var last = input[input.length - 1];
+          for (var i = last.length - 1; i >= 0; i--) {
+            output.push(last[i]);
+          }
+          input = input.slice(0, input.length - 1);
+        }
+        // add left vertical up
+        if (input.length > 0) {
+          for (var i = input.length - 1; i >= 0; i--) {
+            output.push(input[i][0]);
+            input[i] = input[i].slice(1);
+          }
+          // if the first inner array is now empty, break because all elements have been pushed
+          if (input[0].length === 0) {
+            break;
+          }
+        }
+      }
+    }
+    return output;
+  };
+
   render() {
     return (
       <div id="app-container">
@@ -288,6 +345,7 @@ class App extends React.Component {
                 handleMergeSortReverse={this.handleMergeSortReverse}
                 handleShuffleDeck={this.handleShuffleDeck}
                 handleQuicksort={this.handleQuicksort}
+                handleSpiralTraversal={this.handleSpiralTraversal}
               />
               <RelatedItems
                 similarArtists={this.state.displayed}

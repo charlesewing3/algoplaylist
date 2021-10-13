@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDeck, handleQuicksort}) {
+function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDeck, handleQuicksort, handleSpiralTraversal}) {
     return (
       <div className="wrapper">
         <div id="current-item-container">
@@ -13,7 +13,7 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 <div id="first">
                   <b>Mergesort Reverse</b>
                   <ul>
-                    <li>Use <b>mergesort</b> to reverse the track order</li>
+                    <li><b>Mergesort</b> to put tracks in descending order</li>
                     <li>Avg Time: O(log(n))</li>
                     <li>Avg Space: O(n)</li>
                     <li>Results: [[9, 8, 7], [6, 5, 4], [3, 2, 1]]</li>
@@ -42,7 +42,7 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                     <li>Avg Space: </li>
                     <li>Results: [[1, 2, 3], [6, 9, 8], [7, 4, 5]]</li>
                   </ul>
-                <button>Try it!</button>
+                <button onClick={handleSpiralTraversal}>Try it!</button>
                 <br></br>
                 <br></br>
                 </div>
