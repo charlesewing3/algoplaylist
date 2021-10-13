@@ -1,3 +1,6 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto Slab', serif; */
+
 #header {
   background-color: black;
   width: 100%;
@@ -6,12 +9,20 @@
   align-items: center;
   padding-bottom: 50px;
 }
+
+* {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
 body {
   background: radial-gradient(#302b63, #24243e);
   /* background-image: url('./images/background-collage.jpeg'); */
   width: 100%;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
 form {
@@ -163,6 +174,7 @@ iframe {
   color: yellow;
   background-color: black;
   padding: 10px;
+  font-weight: lighter;
 }
 
 #current-item-container {
@@ -237,8 +249,69 @@ li {
 }
 
 #footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
   height: 100px;
   width: 100%;
   margin-top: 20px;
   background-color: black;
+  color: yellow;
+}
+
+
+/* TOOLTIPS */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  /* width: 120px; */
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+
+  /* make it a "top" tooltip */
+  /* width: 120px; */
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* Add tooltip arrow */
+/* .tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  /* left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  z-index: 100;
+} */
+
+.box{
+  display: none;
+  width: 100%;
+}
+
+.tooltip:hover + .box,.box:hover{
+  display: block;
+  position: absolute;
+  z-index: 100;
 }

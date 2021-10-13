@@ -1,4 +1,5 @@
 import React from 'react';
+import spiral from 'client/dist/images/spiral1.jpeg';
 
 function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDeck, handleQuicksort, handleSpiralTraversal}) {
     return (
@@ -11,9 +12,13 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
             <div id="algo-options">
 
                 <div id="first">
-                  <b>Mergesort Reverse</b>
+                  <b className="tooltip">Mergesort
+                    <span className="tooltiptext">
+                      <iframe src="https://en.wikipedia.org/wiki/Merge_sort" ></iframe>
+                    </span>
+                  </b>
                   <ul>
-                    <li><b>Mergesort</b> to put tracks in descending order</li>
+                    <li><b>Descending</b> order</li>
                     <li>Avg Time: O(log(n))</li>
                     <li>Avg Space: O(n)</li>
                     <li>Results: [[9, 8, 7], [6, 5, 4], [3, 2, 1]]</li>
@@ -24,9 +29,12 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 </div>
 
                 <div id="second">
-                  <b>Shuffle Deck</b>
+                  <b className="tooltip">Shuffle
+                    <span className="tooltiptext">
+                      <iframe src="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" ></iframe>
+                    </span>                  </b>
                   <ul>
-                    <li><b>Shuffle</b> the tracks to a random order</li>
+                    <li><b>Random</b> order</li>
                     <li>Avg Time: O(n)</li>
                     <li>Avg Space: O(1)</li>
                     <li>Results: [[?, ?, ?], [?, ?, ?], [?, ?, ?]]</li>
@@ -35,11 +43,15 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 </div>
 
                 <div id="third">
-                  <b>Viral Spiral</b>
+                  <b className="tooltip">Spiral
+                    <span className="tooltiptext">
+                      <img src={spiral}/>
+                    </span>
+                  </b>
                   <ul>
-                    <li><b>Spiral</b> through the current order, starting from the top left</li>
-                    <li>Avg Time: </li>
-                    <li>Avg Space: </li>
+                    <li><b>Spiral</b> order, starting from current top left</li>
+                    <li>Avg Time: O(m * n)</li>
+                    <li>Avg Space: O(n)</li>
                     <li>Results: [[1, 2, 3], [6, 9, 8], [7, 4, 5]]</li>
                   </ul>
                 <button onClick={handleSpiralTraversal}>Try it!</button>
@@ -48,9 +60,13 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 </div>
 
                 <div id="fourth">
-                  <b>Quicksort Ascent</b>
+                  <b className="tooltip">Quicksort
+                    <span className="tooltiptext">
+                      <iframe src="https://en.wikipedia.org/wiki/Merge_sort" ></iframe>
+                    </span>
+                  </b>
                   <ul>
-                    <li>Use <b>quicksort</b> to restore the original order</li>
+                    <li><b>Ascending</b> order</li>
                     <li>Avg Time: O(log(n))</li>
                     <li>Avg Space: O(log(n))</li>
                     <li>Results: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</li>

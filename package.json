@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/charlesewing3/mvp#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "axios": "^0.18.0",
     "nodemon": "^2.0.13",
     "react": "^16.3.1",

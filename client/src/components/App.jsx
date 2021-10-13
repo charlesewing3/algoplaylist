@@ -246,7 +246,7 @@ class App extends React.Component {
     var smaller = [];
     var larger = [];
     for (var i = 1; i < array.length; i++) {
-      if (array[i] <= pivot) {
+      if (array[i].Number <= pivot.Number) {
         smaller.push(array[i]);
       } else {
         larger.push(array[i]);
