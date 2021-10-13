@@ -1,21 +1,22 @@
 import React from 'react';
 
-function AlgoExplanations({handleMergeSortReverse}) {
+function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDeck, handleQuicksort}) {
     return (
       <div className="wrapper">
         <div id="current-item-container">
-          <h1 className="heading1">Algorithm Explanations</h1>
+          <h1 className="heading1">So, how does this work?</h1>
           <div id="algo-instructions">
-            <p>The videos below are stored in a two-dimensional array: one outer array contains three arrays with three videos each. The blue numbers reflect the order in which they were returned from the API. Change the order of your playlist with the following algorithms! </p>
+            <p>Your search has returned <b>{number}</b> videos similar to <b>{name}</b>. Behind the scenes, these videos are stored in a two-dimensional array: one parent array holds multiple sub-arrays, each representing a single row. The blue numbers in each box indicate the order in which the tracks were returned from the API. Change the order of your playlist using the following sorting algorithms! </p>
 
             <div id="algo-options">
 
                 <div id="first">
-                  <b>Mergesort Reverse:</b>
+                  <b>Mergesort Reverse</b>
                   <ul>
-                    <li>use merge sort to put videos in descending order</li>
-                    <li>O(log(n)) time, O(n) space</li>
-                    <li>[[9, 8, 7] [6, 5, 4], [3, 2, 1]]</li>
+                    <li>Use <b>mergesort</b> to reverse the track order</li>
+                    <li>Avg Time: O(log(n))</li>
+                    <li>Avg Space: O(n)</li>
+                    <li>Results: [[9, 8, 7], [6, 5, 4], [3, 2, 1]]</li>
                   </ul>
                 <button onClick={handleMergeSortReverse}>Try it!</button>
                 <br></br>
@@ -23,21 +24,23 @@ function AlgoExplanations({handleMergeSortReverse}) {
                 </div>
 
                 <div id="second">
-                  <b>Shuffle Deck:</b>
+                  <b>Shuffle Deck</b>
                   <ul>
-                    <li>like shuffle deck - randomizes the order</li>
-                    <li>O(n) time, O(1) space</li>
-                    <li>[[?, ?, ?], [?, ?, ?], [?, ?, ?]]</li>
+                    <li><b>Shuffle</b> the tracks to a random order</li>
+                    <li>Avg Time: O(n)</li>
+                    <li>Avg Space: O(1)</li>
+                    <li>Results: [[?, ?, ?], [?, ?, ?], [?, ?, ?]]</li>
                   </ul>
-                <button>Try it!</button>
+                <button onClick={handleShuffleDeck}>Try it!</button>
                 </div>
 
                 <div id="third">
-                  <b>Viral Spiral:</b>
+                  <b>Viral Spiral</b>
                   <ul>
-                    <li>traverses the 2 dimen</li>
-                    <li>?? time, ?? space</li>
-                    <li>[[1, 2, 3] [6, 9, 8] [7, 4, 5]]</li>
+                    <li><b>Spiral</b> through the current order, starting from the top left</li>
+                    <li>Avg Time: </li>
+                    <li>Avg Space: </li>
+                    <li>Results: [[1, 2, 3], [6, 9, 8], [7, 4, 5]]</li>
                   </ul>
                 <button>Try it!</button>
                 <br></br>
@@ -45,21 +48,23 @@ function AlgoExplanations({handleMergeSortReverse}) {
                 </div>
 
                 <div id="fourth">
-                  <b>Binary Ascent:</b>
+                  <b>Quicksort Ascent</b>
                   <ul>
-                    <li>uses binary sort to return to original order</li>
-                    <li>O(log(n)) time, XXX space</li>
-                    <li>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</li>
+                    <li>Use <b>quicksort</b> to restore the original order</li>
+                    <li>Avg Time: O(log(n))</li>
+                    <li>Avg Space: O(log(n))</li>
+                    <li>Results: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</li>
                   </ul>
-                <button>Try it!</button>
+                <button onClick={handleQuicksort}>Try it!</button>
                 </div>
 
               </div>
 
+          <div>View project code here: https://github.com/charlesewing3/mvp.git</div>
             </div>
 
           </div>
-        </div>
+      </div>
   )
 }
 

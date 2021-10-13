@@ -42,7 +42,7 @@ class Item extends React.Component {
 
 
 
-        {this.props.artist.yUrl ? <iframe src={this.props.artist.yUrl}></iframe> : null}
+        {this.props.artist.yUrl ? <iframe src={this.props.artist.yUrl} allow="autoplay"></iframe> : null}
 
         {/* <button>Save</button> */}
       </div>

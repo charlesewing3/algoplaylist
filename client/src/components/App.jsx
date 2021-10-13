@@ -20,12 +20,20 @@ class App extends React.Component {
     }
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+
     this.flatten = this.flatten.bind(this);
     this.unFlatten = this.unFlatten.bind(this);
+    this.changeAutoPlay = this.changeAutoPlay.bind(this);
+
     this.merge = this.merge.bind(this);
     this.mergeSortReverse = this.mergeSortReverse.bind(this);
     this.handleMergeSortReverse = this.handleMergeSortReverse.bind(this);
-    this.changeAutoPlay = this.changeAutoPlay.bind(this);
+
+    this.handleShuffleDeck = this.handleShuffleDeck.bind(this);
+    this.shuffleDeck = this.shuffleDeck.bind(this);
+
+    this.handleQuicksort = this.handleQuicksort.bind(this);
+    this.quicksort = this.quicksort.bind(this);
   }
 
   // updates state when you type in search bar
@@ -118,13 +126,13 @@ class App extends React.Component {
     return output;
   }
 
+  // when the order of tracks changes, move the "autoplay" from
+  // the previous first track to the new one
   changeAutoPlay(flatArr) {
     // remove autoplay from previous first video
     for (var i = 0; i < flatArr.length; i++) {
-      console.log(flatArr[i].yUrl.indexOf('?&autoplay=1'))
       if (flatArr[i].yUrl.indexOf('?&autoplay=1') >= 0) {
         var index = flatArr[i].yUrl.indexOf('?&autoplay=1');
-        console.log(index)
         flatArr[i].yUrl = flatArr[i].yUrl.slice(0, index);
       }
     }
@@ -137,6 +145,8 @@ class App extends React.Component {
   //----------------------------------
   // Mergesort Reverse Functions
   //----------------------------------
+
+  // click handler for the Mergesort Reverse button
   handleMergeSortReverse() {
     var array = this.flatten(this.state.displayed);
     var merged = this.mergeSortReverse(array);
@@ -147,6 +157,8 @@ class App extends React.Component {
     });
   }
 
+  // splits array into halves, sorts them with helper fn
+  // and re-merges in order
   mergeSortReverse(array) {
     if (array.length < 2) {
       return array;
@@ -165,6 +177,7 @@ class App extends React.Component {
     return merged;
   }
 
+  // merges the two halves
   merge(left, right) {
     var i = 0;
     var j = 0;
@@ -184,10 +197,67 @@ class App extends React.Component {
   }
 
 
+  //----------------------------------
+  // Shuffle Deck Functions
+  //----------------------------------
+
+  // flatten, shuffle, change auto play, unflatten, set state
+  handleShuffleDeck() {
+    var array = this.flatten(this.state.displayed);
+    var shuffled = this.shuffleDeck(array);
+    this.changeAutoPlay(shuffled);
+    shuffled = this.unFlatten(shuffled);
+    this.setState({
+      displayed: shuffled
+    });
+  }
+
+  shuffleDeck(deck) {
+    var num = deck.length;
+    while (num > 0) {
+      var index = Math.floor(Math.random() * num);
+      var temp = deck[index];
+      deck.splice(index, 1);
+      deck.push(temp);
+      num--;
+    }
+    return deck;
+  };
 
 
+  //----------------------------------
+  // Quicksort Ascent Functions
+  //----------------------------------
+  handleQuicksort() {
+    var array = this.flatten(this.state.displayed);
+    var sorted = this.quicksort(array);
+    this.changeAutoPlay(sorted);
+    sorted = this.unFlatten(sorted);
+    this.setState({
+      displayed: sorted
+    });
+  }
 
-
+  quicksort(array) {
+    var pivot = array[0];
+    var smaller = [];
+    var larger = [];
+    for (var i = 1; i < array.length; i++) {
+      if (array[i] <= pivot) {
+        smaller.push(array[i]);
+      } else {
+        larger.push(array[i]);
+      }
+    }
+    if (smaller.length > 1) {
+      smaller = this.quicksort(smaller);
+    }
+    if (larger.length > 1) {
+      larger = this.quicksort(larger);
+    }
+    smaller.push(pivot);
+    return smaller.concat(larger);
+  };
 
 
   render() {
@@ -195,8 +265,8 @@ class App extends React.Component {
       <div id="app-container">
         <div id="header">
           <div id="title-subtitle">
-            <h1 id="title">Algorithmic Playlist</h1>
-            <h3 id="subtitle">Discover new artists. <br></br> Shuffle a playlist using your favorite sorting algorithms.</h3>
+            <h1 id="title">The Algorithmic Playlist</h1>
+            <h3 id="subtitle">Discover new artists. <br></br> Shuffle tracks with your favorite sorting algorithms.</h3>
           </div>
           {/* <h1 id="title">Sketchy Pandora</h1>
           <h2 id="subtitle">Search for your favorite artists and create new playlists. You never know what you might find!</h2> */}
@@ -213,7 +283,11 @@ class App extends React.Component {
             {this.state.displayed.length > 0 ?
               <div id="big-container">
               <AlgoExplanations
+                name={this.state.searchedArtist.Name}
+                number={this.flatten(this.state.displayed).length}
                 handleMergeSortReverse={this.handleMergeSortReverse}
+                handleShuffleDeck={this.handleShuffleDeck}
+                handleQuicksort={this.handleQuicksort}
               />
               <RelatedItems
                 similarArtists={this.state.displayed}
@@ -223,7 +297,7 @@ class App extends React.Component {
               </div>
               : null}
 
-            <SavedItems playlist={this.state.playlist}/>
+            {/* <SavedItems playlist={this.state.playlist}/> */}
       </div>
     )
   }

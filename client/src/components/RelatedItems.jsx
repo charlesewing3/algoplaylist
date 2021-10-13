@@ -8,7 +8,7 @@ function RelatedItems({similarArtists, searchedArtist}) {
         {/* <button className="arrow"> {'<'} </button> */}
         <div id="related-container">
 
-          <h1 className="heading1">Playlist (Similar to {searchedArtist.Name})</h1>
+          <h1 className="heading1">Playlist based on <i>{searchedArtist.Name}</i></h1>
           {/* <i>Autoplay all</i> */}
           <div id="related-inner-container">
             {similarArtists.map((fourArtists, index) => {
