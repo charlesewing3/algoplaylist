@@ -76,7 +76,7 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
 
               </div>
 
-          <div>View project code here: https://github.com/charlesewing3/mvp.git</div>
+          <i className="footnote">Check out this project's <a className="footnote" href="https://github.com/charlesewing3/mvp.git">repo</a> on GitHub</i>
             </div>
 
           </div>

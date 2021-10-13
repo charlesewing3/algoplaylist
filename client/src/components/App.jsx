@@ -323,7 +323,7 @@ class App extends React.Component {
         <div id="header">
           <div id="title-subtitle">
             <h1 id="title">The Algorithmic Playlist</h1>
-            <h3 id="subtitle">Discover new artists. <br></br> Shuffle tracks with your favorite sorting algorithms.</h3>
+            <h3 id="subtitle">Discover new artists. <br></br> Shuffle tracks using your favorite sorting algorithms.</h3>
           </div>
           {/* <h1 id="title">Sketchy Pandora</h1>
           <h2 id="subtitle">Search for your favorite artists and create new playlists. You never know what you might find!</h2> */}

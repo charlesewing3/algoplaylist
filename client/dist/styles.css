@@ -315,3 +315,8 @@ li {
   position: absolute;
   z-index: 100;
 }
+
+.footnote {
+  font-size: small;
+  color: #838383;
+}
