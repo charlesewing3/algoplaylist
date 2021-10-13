@@ -1,5 +1,5 @@
 import React from 'react';
-import spiral from 'client/dist/images/spiral1.jpeg';
+// import spiral from '../../dist/images/spiral1.jpeg';
 
 function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDeck, handleQuicksort, handleSpiralTraversal}) {
     return (
@@ -14,7 +14,7 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 <div id="first">
                   <b className="tooltip">Mergesort
                     <span className="tooltiptext">
-                      <iframe src="https://en.wikipedia.org/wiki/Merge_sort" ></iframe>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Merge_sort_algorithm_diagram.svg/300px-Merge_sort_algorithm_diagram.svg.png" />
                     </span>
                   </b>
                   <ul>
@@ -31,7 +31,7 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 <div id="second">
                   <b className="tooltip">Shuffle
                     <span className="tooltiptext">
-                      <iframe src="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" ></iframe>
+                      <img src="https://www.researchgate.net/publication/327597003/figure/tbl1/AS:670022447951885@1536757208251/Fisher-Yates-Shuffle-Algorhytm.png"  height="350px"/>
                     </span>                  </b>
                   <ul>
                     <li><b>Random</b> order</li>
@@ -45,7 +45,7 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 <div id="third">
                   <b className="tooltip">Spiral
                     <span className="tooltiptext">
-                      <img src={spiral}/>
+                      <img src="https://assets.leetcode.com/uploads/2020/11/13/spiral1.jpg"/>
                     </span>
                   </b>
                   <ul>
@@ -62,7 +62,7 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 <div id="fourth">
                   <b className="tooltip">Quicksort
                     <span className="tooltiptext">
-                      <iframe src="https://en.wikipedia.org/wiki/Merge_sort" ></iframe>
+                      <img src="https://res.cloudinary.com/nlogn/images/w_505,h_634/f_auto,q_auto/v1588661780/quick-sort-1/quick-sort-1.png?_i=AA" height="350px"/>
                     </span>
                   </b>
                   <ul>
