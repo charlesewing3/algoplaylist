@@ -42,6 +42,21 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 <button onClick={handleShuffleDeck}>Try it!</button>
                 </div>
 
+                <div id="fourth">
+                  <b className="tooltip">Quicksort
+                    <span className="tooltiptext">
+                      <img src="https://res.cloudinary.com/nlogn/images/w_505,h_634/f_auto,q_auto/v1588661780/quick-sort-1/quick-sort-1.png?_i=AA" height="350px"/>
+                    </span>
+                  </b>
+                  <ul>
+                    <li><b>Ascending</b> order</li>
+                    <li>Avg Time: O(log(n))</li>
+                    <li>Avg Space: O(log(n))</li>
+                    <li>Results: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</li>
+                  </ul>
+                <button onClick={handleQuicksort}>Try it!</button>
+                </div>
+
                 <div id="third">
                   <b className="tooltip">Spiral
                     <span className="tooltiptext">
@@ -57,21 +72,6 @@ function AlgoExplanations({name, number, handleMergeSortReverse, handleShuffleDe
                 <button onClick={handleSpiralTraversal}>Try it!</button>
                 <br></br>
                 <br></br>
-                </div>
-
-                <div id="fourth">
-                  <b className="tooltip">Quicksort
-                    <span className="tooltiptext">
-                      <img src="https://res.cloudinary.com/nlogn/images/w_505,h_634/f_auto,q_auto/v1588661780/quick-sort-1/quick-sort-1.png?_i=AA" height="350px"/>
-                    </span>
-                  </b>
-                  <ul>
-                    <li><b>Ascending</b> order</li>
-                    <li>Avg Time: O(log(n))</li>
-                    <li>Avg Space: O(log(n))</li>
-                    <li>Results: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</li>
-                  </ul>
-                <button onClick={handleQuicksort}>Try it!</button>
                 </div>
 
               </div>
