@@ -1,6 +1,5 @@
 # MVP
 
-Proposal
 An app that allows users to search for a musician (or movie, book, podcast, show, author, or game) and view a list of similar artists, along with thumbnails of each related artist’s first YouTube search result. Users can save suggests they like in a “playlist”, which will be stored in a database and rendered at the bottom of the page. 
 
 API
