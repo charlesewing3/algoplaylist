@@ -1,6 +1,6 @@
 # Algorithmic Playlist
 
-*Algorithmic Playlist* generates playlists of songs by similar musical artists and changes track order using common sorting algorithms.
+The *Algorithmic Playlist* generates a playlist of songs by similar musical artists and lets the user change the track order using various sorting algorithms.
 
 * [Screenshot](#screenshot)
 * [Technologies](#technologies-used)
