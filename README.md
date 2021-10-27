@@ -1,14 +1,14 @@
-# Algorithmic Playlist
+# The Algorithmic Playlist
 Search for a musician to generate a playlist of related artists. Reorder your playlist using various sorting algorithms. 
 
 * [Screenshot](#screenshot)
-* [Technologies](#technologies-used)
-* [Set-Up Repo on Local Machine](#set-up-repo-on-local-machine)
+* [Technologies](#technologies)
+* [Run Locally](#run-locally)
 
 # Screenshot
 <img src="client/dist/images/README/combine_images.jpg" width="100%" alt="screenshot"/>
   
-# Technologies Used
+# Technologies
 ### API
 [Taste Dive API](https://tastedive.com/read/api)
 ### Front-End Development
@@ -40,7 +40,7 @@ CSS <img align="left" alt="CSS3" width="30px" src="https://raw.githubusercontent
 <br />
 <br />
 
-# Set-Up Repo on Local Machine
+# Run Locally
 * `git clone https://github.com/charlesewing3/algoplaylist.git`
 * `npm install` to install dependencies
 * `npm run react-dev` to run the pre-configured webpack
