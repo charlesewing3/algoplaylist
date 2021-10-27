@@ -2,12 +2,12 @@
 
 *Algorithmic Playlist* generates playlists of songs by similar musical artists and changes track order using common sorting algorithms.
 
-* [Screenshots](#screenshots)
+* [Screenshot](#screenshot)
 * [Technologies](#technologies-used)
 * [Set-Up Repo on Local Machine](#set-up-repo-on-local-machine)
 
-# Screenshots
-<img src="client/dist/images/README/full.jpg" width="125%" alt="screenshot"/>
+# Screenshot
+<img src="client/dist/images/README/combine_images.jpg" width="100%" alt="screenshot"/>
   
 # Technologies Used
 ### API
