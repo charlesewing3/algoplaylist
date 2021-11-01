@@ -1,5 +1,5 @@
 # The Algorithmic Playlist
-Search for a musician to generate a playlist of related artists. Reorder your playlist using various sorting algorithms. 
+Search for a musician to generate a playlist of related artists. Reorder your playlist using various sorting algorithms. A 24-hour MVP project completed in fall 2021.
 
 * [Screenshot](#screenshot)
 * [Technologies](#technologies)
